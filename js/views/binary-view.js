@@ -35,7 +35,7 @@ const BinaryView = (function(){
 			.bindDrag(".dropzone", "dragover")
 			.bindClass(".dropzone", "dragover", "dragover")
 			.bindEvent(".dropzone", "drop", this.drop)
-			.bindToggle(".mode", "click", "mode", ["hex", "bin", "dec"])
+			.bindToggle(".mode", "click", "mode", ["hex", "bin", "dec", "ascii"])
 			.bindElement(".mode", "modeText")
 			.bindChange("mode", this.render)
 			.computeValue("mode", x => x[0].toUpperCase() + x.substr(1), "modeText")
@@ -73,6 +73,8 @@ const BinaryView = (function(){
 				valueElement.innerText = Util.numberAsHex(value);
 			}else if(this.model.mode === "bin"){
 				valueElement.innerText = Util.numberAsBin(value);
+			}else if(this.model.mode === "ascii"){
+				valueElement.innerText = Util.numberAsAscii(value);
 			}else{
 				valueElement.innerText = value;
 			}

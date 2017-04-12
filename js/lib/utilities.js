@@ -20,10 +20,15 @@ var Util = (function(){
 	function numberAsBin(number){
 		return pad(number.toString(2).toUpperCase(), 8);
 	}
+	
+	function numberAsAscii(number){
+		return String.fromCharCode(number);
+	}
 
 	return {
 		numberAsHex : numberAsHex,
 		numberAsBin : numberAsBin,
+		numberAsAscii : numberAsAscii,
 		pad : pad
 	};
 })();
